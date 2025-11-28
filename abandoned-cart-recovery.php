@@ -3,7 +3,7 @@
  * Plugin Name: ST404 Woo Abandoned Cart Recovery
  * Plugin URI: https://lestudio404.fr
  * Description: Plugin simple pour récupérer les paniers abandonnés avec envoi d'emails automatiques
- * Version: 1.8.34
+ * Version: 1.8.35
  * Author: Le Studio 404
  * Text Domain: abandoned-cart-recovery
  * WC requires at least: 3.0.0
@@ -27,7 +27,7 @@ if (!defined('ABSPATH')) {
 // Définition des constantes
 define('ACR_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('ACR_PLUGIN_PATH', plugin_dir_path(__FILE__));
-define('ACR_VERSION', '1.8.34');
+define('ACR_VERSION', '1.8.35');
 
 /**
  * Plugin Update Checker - Mises à jour automatiques depuis GitHub
