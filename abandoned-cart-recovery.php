@@ -27,15 +27,20 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-/**
- * Plugin Update Checker - Mises à jour automatiques depuis GitHub
- */
-require_once __DIR__ . '/plugin-update-checker-loader.php';
-
 // Définition des constantes
 define('ACR_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('ACR_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('ACR_VERSION', '1.8.28');
+
+/**
+ * Plugin Update Checker - Mises à jour automatiques depuis GitHub
+ * Chargé après l'initialisation de WordPress pour éviter les erreurs fatales
+ */
+add_action('plugins_loaded', function() {
+    if (file_exists(__DIR__ . '/plugin-update-checker-loader.php')) {
+        require_once __DIR__ . '/plugin-update-checker-loader.php';
+    }
+}, 5);
 
 // Inclure les fichiers nécessaires
 require_once ACR_PLUGIN_PATH . 'includes/functions.php';
