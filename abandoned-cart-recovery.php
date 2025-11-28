@@ -36,11 +36,12 @@ define('ACR_VERSION', '1.8.28');
  * Plugin Update Checker - Mises à jour automatiques depuis GitHub
  * Chargé après l'initialisation de WordPress pour éviter les erreurs fatales
  */
-add_action('plugins_loaded', function() {
-    if (file_exists(__DIR__ . '/plugin-update-checker-loader.php')) {
+if (file_exists(__DIR__ . '/plugin-update-checker-loader.php')) {
+    // Charger le loader seulement si les fonctions WordPress de base sont disponibles
+    if (function_exists('add_action')) {
         require_once __DIR__ . '/plugin-update-checker-loader.php';
     }
-}, 5);
+}
 
 // Inclure les fichiers nécessaires
 require_once ACR_PLUGIN_PATH . 'includes/functions.php';
